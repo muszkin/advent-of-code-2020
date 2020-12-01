@@ -4,8 +4,8 @@ numbers = file.read().split("\n")
 
 pair = []
 
-for number in numbers:
-    for n in numbers:
+for index, number in enumerate(numbers):
+    for n in numbers[index:]:
         if number != n:
             if int(number) + int(n) == 2020:
                 pair.append(int(number))
@@ -19,10 +19,10 @@ print(pair[0] * pair[1])
 
 pair = []
 
-for number in numbers:
-    for n in numbers:
+for index, number in enumerate(numbers):
+    for i, n in enumerate(numbers[index:]):
         if n != number:
-            for nu in numbers:
+            for nu in numbers[i:]:
                 if nu != number and n != number and nu != n:
                     if int(number) + int(n) + int(nu) == 2020:
                         pair.append(int(number))
