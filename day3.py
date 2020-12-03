@@ -1,7 +1,7 @@
 from functools import reduce
 
-input = open('day3-input.txt', 'r')
-whole_map = input.read().split("\n")
+file = open('day3-input.txt', 'r')
+whole_map = file.read().split("\n")
 
 trees = 0
 result = 0
@@ -16,6 +16,13 @@ def get_next_position(pos, record):
     return pos
 
 
+def get_next_row(all_rows, down, current):
+    max_row = len(all_rows) - down
+    if current + down > max_row:
+        return False
+    return current + down
+
+
 slopeDir = [[1, 1], [3, 1], [5, 1], [7, 1], [1, 2]]
 position = 0
 
@@ -28,13 +35,6 @@ for index, row in enumerate(whole_map):
 
 print(trees)
 
-
-def get_next_row(allRows, down, current):
-    max_index = len(allRows) - down
-    if current + down > max_index:
-        return False
-    return current + down
-
 trees = 0
 currentRow = 0
 for slope in slopeDir:
@@ -46,7 +46,6 @@ for slope in slopeDir:
             if whole_map[currentRow][position] == "#":
                 trees += 1
     slopeRun.append(trees)
-    print(trees)
     trees = 0
 
-print(reduce(lambda x, y: x * y, slopeRun))
+print(reduce(lambda a, b: a * b, slopeRun))
