@@ -6,9 +6,9 @@ def get(seat_row: str, ran: list):
             else:
                 return ran[1]
         if sr == "F" or sr == "L":
-            ran = ran[0:int(len(ran)/2) + len(ran) % 2]
+            ran = ran[0:int(len(ran)/2)]
         else:
-            ran = ran[int(len(ran)/2) + len(ran) % 2:]
+            ran = ran[int(len(ran)/2):]
 
 
 file = open("day5-input.txt", "r")
