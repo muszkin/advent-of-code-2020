@@ -13,7 +13,7 @@ def get(seat_row: str, ran: list):
 
 file = open("day5-input.txt", "r")
 
-seats = map(str,file.read().split("\n"))
+seats = map(str, file.read().split("\n"))
 
 ids = []
 
